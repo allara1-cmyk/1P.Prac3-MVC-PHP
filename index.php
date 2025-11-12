@@ -1,7 +1,4 @@
 <?php
-
-echo "<h1>Bienvenido a la aplicación MVC en PHP</h1>";
-
 include_once 'controladores/Controlador.php';
 include_once 'modelos/Modelo.php';
 
@@ -19,8 +16,6 @@ if ($_SERVER["REQUEST_URI"] != null) {
         $recursos[1] = explode("?", $recursos[1])[0];
     }
     $accion = $recursos[1];
-
-    var_dump( $recursos);
 
     // nombre del controlador
     $nombre = (isset($recursos[0])) ? $recursos[0] : "inicio";
