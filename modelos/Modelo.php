@@ -104,3 +104,4 @@ private function valores(){
     }
     return implode(",", $valores);
 }
+}
