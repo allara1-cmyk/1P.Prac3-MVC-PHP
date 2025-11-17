@@ -1,7 +1,9 @@
 <?php
+$GLOBALS["URL_SERVER"] = "http://localhost/mvc_php";
 // Incluye una vez Controlador y Modelo
 include_once 'controladores/Controlador.php';
 include_once 'modelos/Modelo.php';
+
 
 if ($_SERVER["REQUEST_URI"] != null) {                                              // Verifica si existe la URI
     // ruta del servidor
@@ -14,7 +16,7 @@ if ($_SERVER["REQUEST_URI"] != null) {                                          
     $accion = "";                                                   
     $recursos[1] = (isset($recursos[1])) ? $recursos[1] : "home";                   // Si no hay accion definida usar home
     if (!empty($_GET)) {                                                            // Si hay variables get quitarl cualquier ?param del recurso
-        $recursos[1] = explode("?", $recursos[1])[0];                               
+        $recursos[1] = explode("?", $recursos[1])[0];                                                   
     }
     $accion = $recursos[1];                                                         
 
