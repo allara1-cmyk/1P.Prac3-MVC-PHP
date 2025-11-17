@@ -32,7 +32,7 @@ class Modelo {
 
      // Valida que los atributos NO estén vacíos
     public function validar() {
-        $noError = true;
+        $noError = false;
          // Recorre cada atributo del modelo
         foreach ($this->atributos as $key => $value) {
             if (empty($value)) {             // Si algún valor está vacío, marca error
