@@ -16,4 +16,5 @@
             // El precio es un número válido y mayor que 0
             return is_numeric($this -> precio) && $this -> precio > 0;
         }
+        
     }

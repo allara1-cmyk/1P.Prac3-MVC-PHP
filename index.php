@@ -5,7 +5,9 @@ include_once 'controladores/Controlador.php';
 include_once 'modelos/Modelo.php';
 
 
-if ($_SERVER["REQUEST_URI"] != null) {                                              // Verifica si existe la URI
+if ($_SERVER["REQUEST_URI"] != null) {    
+    $_SERVER["REQUEST_URI"] = preg_replace('#/+#','/', $_SERVER["REQUEST_URI"]);
+                                          // Verifica si existe la URI
     // ruta del servidor
     $URL_SERVER = explode("index.php/", $_SERVER["REQUEST_URI"])[0];                // dividir la URl, elimina todo despues de index.php para obtener urta basae
 

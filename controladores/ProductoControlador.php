@@ -54,26 +54,5 @@ class ProductoControlador extends Controlador{
         }
     }
 
-    // Buscar productos
-    function consultar() {
-        $q = isset($_GET["q"]) ? trim($_GET["q"]) : "";
-
-        $modelo = new ProductoModelo();
-
-        // si no se ha enviado nada, mostrar solo el formulario de búsqueda
-        if ($q === "") {
-            $this->mostrarVista("consultar");
-            return;
-        }
-
-        // si sí se envió una búsqueda
-        $resultados = $modelo->buscar($q);
-
-        // mostrar la tabla reutilizando la vista todo.php
-        $this->mostrarVista("todo", array(
-            "resultados" => $resultados,
-            "busqueda"   => $q
-        ));
-    }
-
+    
 }
