@@ -2,6 +2,7 @@
 // Carga la clase responsable de la conexión a la base de datos
 require_once "Conexion.php";
 
+// Clase base para todos los modelos
 class Modelo {
     public $idNombre = "id";            // Nombre de la columna que representa la clave primaria
     public $atributos = [];             // Almacena los valores de este modelo 
