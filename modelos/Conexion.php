@@ -50,7 +50,7 @@ class Conexion
         return $this->mysqli->insert_id;
     }
 
-    // Método para devolver último ID insertado en arreglo asosiativo
+    // Método para devolver último registro insertado en arreglo asosiativo
     public function extraerModelo()
     {
         // Cada vez que se llame se pasa el siguiente índice
