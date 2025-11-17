@@ -32,7 +32,7 @@ class Modelo {
 
      // Valida que los atributos NO estén vacíos
     public function validar() {
-        $noError = false;
+        $noError = true;
          // Recorre cada atributo del modelo
         foreach ($this->atributos as $key => $value) {
             if (empty($value)) {             // Si algún valor está vacío, marca error
@@ -44,7 +44,7 @@ class Modelo {
 
      // Inserta un nuevo registro en la tabla
     public function insertar() {
-        $campos = implode(",", $this->nombreAtributos);     // Convierte el array de nombres de columnas en texto separado por comas
+        $campos = implode(",", array_slice($this->nombreAtributos, 1));     // Convierte el array de nombres de columnas en texto separado por comas
         $valores = $this->valores();                        // Convierte los valores del modelo en una lista lista para SQL
         // Armado del SQL final de inserción
         $sql = "insert into {$this->nombreTabla} ({$campos}) values({$valores})";
@@ -57,7 +57,7 @@ class Modelo {
     public function actualizar(){
         $campos = implode(",", $this->nombreAtributos);      // Convierte el array de columnas en un string
         $set = $this->valoresActualizar();                  // Crea la parte SET del UPDATE (campo='valor')
-        $sql = "update {$this->nombreTabla} set ({$set}) 
+        $sql = "update {$this->nombreTabla} set {$set} 
                 where {$this->idNombre} = $this->id";       // Armado del SQL final
         // Ejecuta el SQL
         $this->conexion->abrir();
