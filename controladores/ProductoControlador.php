@@ -9,8 +9,10 @@ class ProductoControlador extends Controlador{
             if ($modelo->validar()) {                                   // devuelve true si esta correctamente validado
                 $modelo->insertar();                                    // inserta los datos 
                 $this->mostrarVista("exito");                           // muestra la vista exito.php
+                return; 
             } else {
                 $this->mostrarVista("crear", array("modelo" => true));  // si hay error, mostrar la vista crear pero con error
+                return;
             }
         }
         $this->mostrarVista("crear");                                   // Si no hay POST solo muestra la vista del formulario
